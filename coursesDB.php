@@ -8,7 +8,7 @@
       $this->open($path);
       $this->exec("CREATE TABLE IF NOT EXISTS courses(
         course_id integer NOT NULL PRIMARY KEY AUTOINCREMENT,
-        name text NOT NULL ,
+        name text NOT NULL,
         teacher_name text NOT NULL,
         max_students integer NOT NULL,
         information text)"
