@@ -1,0 +1,17 @@
+
+.badge{float:right}
+
+.btn-removeStudent{
+    display: none
+}
+
+.btn-excel{
+  margin-top: 25px;
+}
+
+@media screen and (max-width: 768px) {
+    .btn-excel{
+      margin-top: 0px;
+      margin-bottom: 10px;
+    }
+}

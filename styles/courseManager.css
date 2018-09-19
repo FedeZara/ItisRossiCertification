@@ -1,0 +1,23 @@
+.clickable
+{
+    cursor: pointer;
+}
+
+#btnRemove{
+  display: none;
+}
+
+#btnModify{
+  display: none;
+}
+
+.btn-newCourse{
+  margin-top: 25px;
+}
+
+@media screen and (max-width: 768px) {
+    .btn-newCourse{
+      margin-top: 0px;
+      margin-bottom: 10px;
+    }
+}
