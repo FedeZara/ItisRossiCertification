@@ -170,7 +170,7 @@ function btnGreen_Click(course_id){
               '<input class="form-control" id="class" type="text" placeholder="Classe" pattern="^([1-5][a-zA-Z]{3})$" data-error="Inserire una classe valida!" required>'+
              '</div>'+
              '<div class="help-block with-errors"></div>' +
-        '  </div>'+
+         '</div>'+
           '<div class="form-group has-feedback col-md-4 col-xs-12" id="form-group-surname">'+
             '<div class="input-group">' +
               '<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>'+
