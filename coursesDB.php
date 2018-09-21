@@ -1,5 +1,5 @@
 <?php
-  $WEBSITE_PATH = $_SERVER["DOCUMENT_ROOT"] . "/CourseBooking-new/";
+  $WEBSITE_PATH = $_SERVER["DOCUMENT_ROOT"] . "/";
   $DATABASE_PATH = $WEBSITE_PATH . "db/courses.sqlite3";
 
   class CoursesDB extends SQLite3{
