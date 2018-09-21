@@ -54,7 +54,7 @@ function btnGreen_Click(course_id){
              '<div class="alert alert-danger alert-dismissible fade in">' +
               '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
               '<strong>Errore</strong> sconosciuto durante la rimozione degli studenti! '+
-            '</div>')
+            '</div>');
            }
            update_buttons(course_id);
           }
@@ -148,7 +148,7 @@ function btnGreen_Click(course_id){
              $("#course-" + course_id + " #hint").html('<div class="alert alert-danger alert-dismissible fade in">' +
               '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
               "<strong>Errore</strong> sconosciuto durante l'aggiunta degli studenti! "+
-            '</div>')
+            '</div>');
            }
           }
         });
@@ -157,7 +157,7 @@ function btnGreen_Click(course_id){
       $("#course-" + course_id + " #hint").html('<div class="alert alert-danger alert-dismissible fade in">' +
        '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
        'Compilare correttamente i campi. '+
-     '</div>')
+     '</div>');
     }
 
   }
@@ -187,7 +187,7 @@ function btnGreen_Click(course_id){
           '</div>'+
         '</form>');
 
-    $("#form").validator('update')
+    $("#form").validator('update');
     $("#course-" + course_id + " #btnGreen").html('<span class="glyphicon glyphicon-ok"></span>');
     $("#course-" + course_id + " #btnRed").html('<span class="glyphicon glyphicon-remove"></span>');
     adding = true;
@@ -256,7 +256,7 @@ function downloadExcel(){
          $("#error").html('<div class="alert alert-danger alert-dismissible fade in">' +
           '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
           '<strong> Errore sconosciuto </strong> durante lo scaricamento del file!'+
-        '</div>')
+        '</div>');
        }
       }
     });
