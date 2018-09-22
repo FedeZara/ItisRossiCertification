@@ -7,14 +7,14 @@ class CoursesDB
     {
         $this->db_connection = pg_connect(getenv("DATABASE_URL"));
         $result = pg_query("CREATE TABLE IF NOT EXISTS courses(
-        course_id integer SERIAL PRIMARY KEY,
+        course_id SERIAL PRIMARY KEY,
         name text NOT NULL,
         teacher_name text NOT NULL,
         max_students integer NOT NULL,
         information text)"
         );
         $result = pg_query("CREATE TABLE IF NOT EXISTS students(
-        student_id integer SERIAL PRIMARY KEY,
+        student_id SERIAL PRIMARY KEY,
         name text NOT NULL,
         surname text NOT NULL,
         class text NOT NULL,
