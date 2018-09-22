@@ -1,10 +1,12 @@
 <?php
   $WEBSITE_PATH = $_SERVER["DOCUMENT_ROOT"] . "/";
-  $DATABASE_PATH = $WEBSITE_PATH . "db/courses.sqlite3";
+  $DATABASE_NAME = "";
+  $USERNAME = "";
+  $PASSWORD = "";
+  $HOST = "";
+  class CoursesDB{
 
-  class CoursesDB extends SQLite3{
-
-    function __construct($path){
+    function __construct(){
       $this->open($path);
       $this->exec("CREATE TABLE IF NOT EXISTS courses(
         course_id integer NOT NULL PRIMARY KEY AUTOINCREMENT,
