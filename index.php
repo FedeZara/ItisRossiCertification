@@ -1,28 +1,28 @@
 <?php
-require("coursesDB.php");
-$coursesDB = new CoursesDB($DATABASE_PATH);
-function showCourses(){
-  global $coursesDB;
-  $courses = $coursesDB->getCourses();
-  if(count($courses) == 0){
-    echo '<div class="col-lg-6 alert alert-warning">
+require "coursesDB.php";
+$coursesDB = new CoursesDB();
+function showCourses()
+{
+    global $coursesDB;
+    $courses = $coursesDB->getCourses();
+    if (count($courses) == 0) {
+        echo '<div class="col-lg-6 alert alert-warning">
             <strong>Nessun corso disponibile!</strong> <br>
             Se pensi possa esserci un errore contatta la prof.ssa Lavinia Vettore.
           </div>';
-  }
-  else{
-    for($i=0; $i<count($courses); $i++){
-        $course_id = $courses[$i]["course_id"];
-        $maxStudentReached = $courses[$i]["num_students"] == $courses[$i]["max_students"];
-        echo '<div class="col-lg-6" id="div' . $course_id . '">
+    } else {
+        for ($i = 0; $i < count($courses); $i++) {
+            $course_id = $courses[$i]["course_id"];
+            $maxStudentReached = $courses[$i]["num_students"] == $courses[$i]["max_students"];
+            echo '<div class="col-lg-6" id="div' . $course_id . '">
                 <div class="panel ' . ($maxStudentReached ? 'panel-danger' : 'panel-default') . '">
-                  <div class="panel-heading clearfix ' . ($maxStudentReached ? 'disabled' : 'clickable" onclick="selectCourse('. $course_id .')') . ' ">
+                  <div class="panel-heading clearfix ' . ($maxStudentReached ? 'disabled' : 'clickable" onclick="selectCourse(' . $course_id . ')') . ' ">
                     <div class="row">
                       <div class="col-xs-12 col-md-10">
-                        <h4 class="panel-title pull-left" style="padding-top: 7.5px; padding-bottom: 7.5px;">' . $courses[$i]["name"] .'</h4>
+                        <h4 class="panel-title pull-left" style="padding-top: 7.5px; padding-bottom: 7.5px;">' . $courses[$i]["name"] . '</h4>
                       </div>
                       <div class="col-xs-12 col-md-2 text-right">
-                        <span class="badge" style="margin-top: 7px"> <span id="num_students"> '.$courses[$i]["num_students"].' </span>  /  <span id="max_students">'.$courses[$i]["max_students"].' </span></span>
+                        <span class="badge" style="margin-top: 7px"> <span id="num_students"> ' . $courses[$i]["num_students"] . ' </span>  /  <span id="max_students">' . $courses[$i]["max_students"] . ' </span></span>
                       </div>
                     </div>
                     ' . ($maxStudentReached ? '
@@ -31,7 +31,7 @@ function showCourses(){
                         <i>Numero massimo di iscrizioni raggiunto</i>
                       </div>
                     </div>'
-                    : '') . '
+                : '') . '
                   </div>
                   <div class="panel-body">
                     <div>' . $courses[$i]["information"] . ' </div>
@@ -43,8 +43,8 @@ function showCourses(){
                   </div>
                 </div>
               </div>';
+        }
     }
-  }
 }
 ?>
 
@@ -120,7 +120,7 @@ function showCourses(){
       </div>
     </div>
     <div class = "row">
-      <?php showCourses() ?>
+      <?php showCourses()?>
     </div>
   </div>
   <div class="tab3 hide">

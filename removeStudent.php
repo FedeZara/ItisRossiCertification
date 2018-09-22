@@ -1,20 +1,19 @@
 <?php
 require "coursesDB.php";
-$coursesDB = new CoursesDB($DATABASE_PATH);
+$coursesDB = new CoursesDB();
 $studentsToRemove = $_REQUEST['studentsToRemove'];
 
-$succeeded = True;
-foreach($studentsToRemove as $s){
-  $result = $coursesDB->removeStudent($s);
-  if(!$result)
-    $succeeded = False;
+$succeeded = true;
+foreach ($studentsToRemove as $s) {
+    $result = $coursesDB->removeStudent($s);
+    if (!$result) {
+        $succeeded = false;
+    }
+
 }
 
-if($succeeded){
-  echo "done";
+if ($succeeded) {
+    echo "done";
+} else {
+    echo "error";
 }
-else{
-  echo "error";
-}
-
-?>

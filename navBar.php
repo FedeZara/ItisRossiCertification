@@ -1,6 +1,7 @@
 <?php
-    function showNavBar($n){
-        echo '<nav class="navbar navbar-inverse navbar-static-top">
+function showNavBar($n)
+{
+    echo '<nav class="navbar navbar-inverse navbar-static-top">
                   <div class="container-fluid">
                     <div class="col-lg-1 col-sm-0"></div>
                     <div class="col-lg-10 col-sm-12">
@@ -14,8 +15,8 @@
                         </div>
                         <div class="collapse navbar-collapse" id="myNavbar">
                           <ul class="nav navbar-nav">
-                            <li ' . ($n==0 ? 'class="active"' : '') . ' ><a href="courseManager.php">Gestisci corsi</a></li>
-                            <li ' . ($n==1 ? 'class="active"' : '') . '><a href="courseResults.php">Risultati</a></li>
+                            <li ' . ($n == 0 ? 'class="active"' : '') . ' ><a href="courseManager.php">Gestisci corsi</a></li>
+                            <li ' . ($n == 1 ? 'class="active"' : '') . '><a href="courseResults.php">Risultati</a></li>
                           </ul>
                           <ul class="nav navbar-nav navbar-right">
                             <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
@@ -24,5 +25,4 @@
                     </div>
                   </div>
                 </nav>';
-    }
-?>
+}

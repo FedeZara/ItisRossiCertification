@@ -1,34 +1,34 @@
 <?php
-require("navBar.php");
-require("coursesDB.php");
+require "navBar.php";
+require "coursesDB.php";
 
 session_start();
 
-if(!isset($_SESSION['logged']) || empty($_SESSION['logged']) || !$_SESSION['logged']){
-  header("location: login.php");
-  exit;
+if (!isset($_SESSION['logged']) || empty($_SESSION['logged']) || !$_SESSION['logged']) {
+    header("location: login.php");
+    exit;
 }
 
 //$coursesDB->addStudent("a", "b", "c", 2);
 $course_id = $_REQUEST["course_id"];
-function showModifyMenu(){
-  global $course_id;
-  global $DATABASE_PATH;
-  $coursesDB = new CoursesDB($DATABASE_PATH);
-  $course = array();
-  if($course_id == -1){
-    $course = array("name"=>"", "teacher_name"=>"", "max_students"=>"", "information"=>'<h3>CORSO DI CERTIFICAZIONE <i>"Nome corso"</i></h3><h4>Calendario corsi</h4><p><i>Esempio: Lun 13.30/15.00</i></p>');
-  }
-  else{
-    $course = $coursesDB->getCourse($course_id);
-  }
-  echo '
+function showModifyMenu()
+{
+    global $course_id;
+    global $DATABASE_PATH;
+    $coursesDB = new CoursesDB();
+    $course = array();
+    if ($course_id == -1) {
+        $course = array("name" => "", "teacher_name" => "", "max_students" => "", "information" => '<h3>CORSO DI CERTIFICAZIONE <i>"Nome corso"</i></h3><h4>Calendario corsi</h4><p><i>Esempio: Lun 13.30/15.00</i></p>');
+    } else {
+        $course = $coursesDB->getCourse($course_id);
+    }
+    echo '
   <div class="panel panel-default">
     <div class="panel-heading">
       <div class="row">
         <div class="col-md-6 col-xs-12">' .
         ($course_id == -1 ? '<h4><strong>Nuovo corso</strong></h4>' : '<h4><strong>Modifica corso</strong> - ' . $course["name"] . '</h4>')
-      . '
+        . '
         </div>
         <div class="col-md-6 col-xs-12 text-right">
           <a class="btn btn-danger" href="courseManager.php"><span class="glyphicon glyphicon-remove"></span> Annulla</a>
@@ -58,7 +58,7 @@ function showModifyMenu(){
       </div>
       <div class="form-group col-md-10 col-sm-12" id="form-group-max_students">
         <div class="input-group">
-          <textarea name="content" id="editor">' . $course["information"] .  '</textarea>
+          <textarea name="content" id="editor">' . $course["information"] . '</textarea>
         </div>
       </div>
     </div>
@@ -85,14 +85,14 @@ function showModifyMenu(){
 <body>
 
 <?php
-    showNavBar(0);
+showNavBar(0);
 ?>
 
 <div class="container">
     <h1 class="">Gestione corsi</h1>
     <div class="row">
         <div class="col-lg-8 col-sm-10 col-xs-12">
-          <?php showModifyMenu(); ?>
+          <?php showModifyMenu();?>
         </div>
     </div>
 </div>

@@ -1,36 +1,36 @@
 <?php
-require("navBar.php");
-require("coursesDB.php");
+require "navBar.php";
+require "coursesDB.php";
 
 session_start();
 
-if(!isset($_SESSION['logged']) || empty($_SESSION['logged']) || !$_SESSION['logged']){
-  header("location: login.php");
-  exit;
+if (!isset($_SESSION['logged']) || empty($_SESSION['logged']) || !$_SESSION['logged']) {
+    header("location: login.php");
+    exit;
 }
 
-$coursesDB = new CoursesDB($DATABASE_PATH);
+$coursesDB = new CoursesDB();
 //$coursesDB->addStudent("a", "b", "c", 2);
-function showCourses(){
-  global $coursesDB;
-  $courses = $coursesDB->getCourses();
-  if(count($courses) == 0){
-    echo '<div class="alert alert-warning">
+function showCourses()
+{
+    global $coursesDB;
+    $courses = $coursesDB->getCourses();
+    if (count($courses) == 0) {
+        echo '<div class="alert alert-warning">
             <strong>Nessun corso creato!</strong> <br>
             Crea un nuovo corso selezionando <a href="modifyCourse.php?course_id=-1" class="alert-link">Nuovo corso</a>.
           </div>';
-  }
-  else{
-    echo '<div class="row">';
-    for($i=0; $i<count($courses); $i++){
-        $course_id = $courses[$i]["course_id"];
-        echo '<div id="hint' . $course_id .'"></div>';
-        echo '<div class="col-lg-6" id="div' . $course_id . '">
+    } else {
+        echo '<div class="row">';
+        for ($i = 0; $i < count($courses); $i++) {
+            $course_id = $courses[$i]["course_id"];
+            echo '<div id="hint' . $course_id . '"></div>';
+            echo '<div class="col-lg-6" id="div' . $course_id . '">
                 <div class="panel panel-default">
-                  <div class="panel-heading clickable clearfix" onclick="selectCourse('. $course_id .')">
+                  <div class="panel-heading clickable clearfix" onclick="selectCourse(' . $course_id . ')">
                     <div class="row">
                       <div class="col-xs-12 col-md-9">
-                        <h4 class="panel-title pull-left" style="padding-top: 7.5px; padding-bottom: 7.5px;">' . $courses[$i]["name"] .'</h4>
+                        <h4 class="panel-title pull-left" style="padding-top: 7.5px; padding-bottom: 7.5px;">' . $courses[$i]["name"] . '</h4>
                       </div>
                       <div class="col-xs-12 col-md-3 text-right">
                         <div class="btn-group">
@@ -50,9 +50,9 @@ function showCourses(){
                   </div>
                 </div>
               </div>';
+        }
+        echo '</div>';
     }
-    echo '</div>';
-  }
 }
 ?>
 
@@ -72,7 +72,7 @@ function showCourses(){
 <body>
 
 <?php
-    showNavBar(0);
+showNavBar(0);
 ?>
 
 <div class="container">
@@ -87,7 +87,7 @@ function showCourses(){
     </div>
   </div>
   <div>
-    <?php showCourses(); ?>
+    <?php showCourses();?>
   </div>
 </div>
 <footer class="footer">

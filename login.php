@@ -2,20 +2,20 @@
 $password = "";
 $password_err = "";
 $class_err = "";
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    if(empty(trim($_POST['password']))){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty(trim($_POST['password']))) {
         $password_err = 'Inserire una password!';
         $class_err = "has-error has-danger";
-    } else{
+    } else {
         $password = trim($_POST['password']);
     }
 
-    if(empty($password_err)){
-        if($password == "itisrossicertificazioni2019"){
+    if (empty($password_err)) {
+        if ($password == "itisrossicertificazioni2019") {
             session_start();
             $_SESSION['logged'] = true;
             header("location: courseManager.php");
-        } else{
+        } else {
             $password_err = 'Password incorretta!';
             $class_err = "has-error has-danger";
         }

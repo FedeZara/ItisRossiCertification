@@ -1,18 +1,16 @@
 <?php
 require "coursesDB.php";
-$coursesDB = new CoursesDB($DATABASE_PATH);
+$coursesDB = new CoursesDB();
 $course_id = $_REQUEST['course_id'];
 
-$succeeded = True;
+$succeeded = true;
 $result = $coursesDB->removeCourse($course_id);
-if(!$result)
-  $succeeded = False;
-
-if($succeeded){
-  echo "done";
-}
-else{
-  echo "error";
+if (!$result) {
+    $succeeded = false;
 }
 
-?>
+if ($succeeded) {
+    echo "done";
+} else {
+    echo "error";
+}
