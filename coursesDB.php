@@ -6,14 +6,14 @@ class CoursesDB
     public function __construct()
     {
         $this->db_connection = pg_connect(getenv("DATABASE_URL"));
-        $result = pg_query("CREATE TABLE IF NOT EXISTS courses(
+        $result = pg_query($this->db_connection, "CREATE TABLE IF NOT EXISTS courses(
         course_id SERIAL PRIMARY KEY,
         name text NOT NULL,
         teacher_name text NOT NULL,
         max_students integer NOT NULL,
         information text)"
         );
-        $result = pg_query("CREATE TABLE IF NOT EXISTS students(
+        $result = pg_query($this->db_connection, "CREATE TABLE IF NOT EXISTS students(
         student_id SERIAL PRIMARY KEY,
         name text NOT NULL,
         surname text NOT NULL,
@@ -25,7 +25,7 @@ class CoursesDB
 
     public function addStudent($name, $surname, $class, $course_id)
     {
-        $result = pg_query("INSERT INTO students(name, surname, class, course_id)
+        $result = pg_query($this->db_connection, "INSERT INTO students(name, surname, class, course_id)
           VALUES ('$name', '$surname', '$class', '$course_id') RETURNING student_id");
         if (!$result) {
             return false;
@@ -36,7 +36,7 @@ class CoursesDB
 
     public function addCourse($name, $teacher_name, $max_students, $information)
     {
-        $result = pg_query("INSERT INTO courses(name, teacher_name, max_students, information)
+        $result = pg_query($this->db_connection, "INSERT INTO courses(name, teacher_name, max_students, information)
           VALUES ('$name', '$teacher_name', '$max_students', '$information') RETURNING course_id");
         if (!$result) {
             return false;
@@ -47,20 +47,20 @@ class CoursesDB
 
     public function removeStudent($student_id)
     {
-        return pg_query("DELETE FROM students WHERE student_id = '$student_id'");
+        return pg_query($this->db_connection, "DELETE FROM students WHERE student_id = '$student_id'");
     }
 
     public function removeCourse($course_id)
     {
-        if (!pg_query("DELETE FROM courses WHERE course_id = '$course_id'")) {
+        if (!pg_query($this->db_connection, "DELETE FROM courses WHERE course_id = '$course_id'")) {
             return false;
         }
-        return pg_query("DELETE FROM students WHERE course_id = '$course_id'");
+        return pg_query($this->db_connection, "DELETE FROM students WHERE course_id = '$course_id'");
     }
 
     public function getStudentsFromCourseId($course_id)
     {
-        $result = pg_query("SELECT name, surname, class, student_id FROM students WHERE course_id = '$course_id' ORDER BY class, surname, name");
+        $result = pg_query($this->db_connection, "SELECT name, surname, class, student_id FROM students WHERE course_id = '$course_id' ORDER BY class, surname, name");
         if (!$result) {
             return false;
         }
@@ -73,7 +73,7 @@ class CoursesDB
 
     public function getCourses()
     {
-        $result = pg_query('SELECT courses.course_id, courses.name, courses.teacher_name, courses.max_students, courses.information, count(students.course_id) as num_students
+        $result = pg_query($this->db_connection, 'SELECT courses.course_id, courses.name, courses.teacher_name, courses.max_students, courses.information, count(students.course_id) as num_students
           FROM courses LEFT JOIN students ON (courses.course_id = students.course_id) GROUP BY courses.course_id ORDER BY courses.name');
         if (!$result) {
             return false;
@@ -87,7 +87,7 @@ class CoursesDB
 
     public function getCourse($course_id)
     {
-        $result = pg_query("SELECT name, teacher_name, max_students, information FROM courses WHERE course_id = '$course_id'");
+        $result = pg_query($this->db_connection, "SELECT name, teacher_name, max_students, information FROM courses WHERE course_id = '$course_id'");
         if (!$result) {
             return false;
         }
@@ -97,6 +97,6 @@ class CoursesDB
 
     public function modifyCourse($course_id, $name, $teacher_name, $max_students, $information)
     {
-        return pg_query("UPDATE courses SET name = '$name', teacher_name = '$teacher_name', max_students = '$max_students', information = '$information' WHERE course_id = '$course_id");
+        return pg_query($this->db_connection, "UPDATE courses SET name = '$name', teacher_name = '$teacher_name', max_students = '$max_students', information = '$information' WHERE course_id = '$course_id");
     }
 }
