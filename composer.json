@@ -2,7 +2,6 @@
     "require": {
         "ext-ctype": "*",
         "ext-dom": "*",
-        "ext-gd": "*",
         "ext-iconv": "*",
         "ext-libxml": "*",
         "ext-mbstring": "*",
