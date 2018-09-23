@@ -30,7 +30,8 @@ class CoursesDB
         if (!$result) {
             return false;
         } else {
-            return pg_fetch_array($result, PGSQL_NUM)[0];
+            $arr = pg_fetch_array($result, PGSQL_ASSOC);
+            return $arr["student_id"];
         }
     }
 
@@ -41,7 +42,8 @@ class CoursesDB
         if (!$result) {
             return false;
         } else {
-            return pg_fetch_array($result, PGSQL_ASSOC)["course_id"];
+            $arr = pg_fetch_array($result, PGSQL_ASSOC);
+            return $arr["course_id"];
         }
     }
 
