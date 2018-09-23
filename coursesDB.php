@@ -53,10 +53,10 @@ class CoursesDB
 
     public function removeCourse($course_id)
     {
-        if (!pg_query($this->db_connection, "DELETE FROM courses WHERE course_id = '$course_id'")) {
+        if (!pg_query($this->db_connection, "DELETE FROM students WHERE course_id = '$course_id'")) {
             return false;
         }
-        return pg_query($this->db_connection, "DELETE FROM students WHERE course_id = '$course_id'");
+        return pg_query($this->db_connection, "DELETE FROM courses WHERE course_id = '$course_id'");
     }
 
     public function getStudentsFromCourseId($course_id)
