@@ -41,7 +41,7 @@ class CoursesDB
         if (!$result) {
             return false;
         } else {
-            return pg_fetch_array($result, PGSQL_NUM)[0];
+            return 1;
         }
     }
 
