@@ -79,9 +79,9 @@ class CoursesDB
             return false;
         }
         $courses = array();
-        /*while ($course = pg_fetch_array($result, PGSQL_ASSOC)) {
+        while ($course = pg_fetch_array($result, PGSQL_ASSOC)) {
             array_push($courses, $course);
-        }*/
+        }
         return $courses;
     }
 
