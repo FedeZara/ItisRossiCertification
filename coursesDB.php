@@ -98,6 +98,6 @@ class CoursesDB
 
     public function modifyCourse($course_id, $name, $teacher_name, $max_students, $information)
     {
-        return pg_query($this->db_connection, "UPDATE courses SET name = '$name', teacher_name = '$teacher_name', max_students = '$max_students', information = '$information' WHERE course_id = '$course_id");
+        return pg_query($this->db_connection, "UPDATE courses SET name = '$name', teacher_name = '$teacher_name', max_students = '$max_students', information = '$information' WHERE course_id = '$course_id'");
     }
 }
