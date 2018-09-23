@@ -10,6 +10,7 @@ if (!isset($_SESSION['logged']) || empty($_SESSION['logged']) || !$_SESSION['log
 }
 
 $coursesDB = new CoursesDB();
+$coursesDB->addCourse("a", "b", 30, "");
 //$coursesDB->addStudent("a", "b", "c", 2);
 function showCourses()
 {
