@@ -30,7 +30,7 @@ class CoursesDB
         if (!$result) {
             return false;
         } else {
-            $arr = pg_fetch_array($result, PGSQL_NUM);
+            $arr = pg_fetch_array($result, NULL, PGSQL_NUM);
             return $arr[0];
         }
     }
@@ -66,7 +66,7 @@ class CoursesDB
             return false;
         }
         $students = array();
-        while ($student = pg_fetch_array($result, PGSQL_ASSOC)) {
+        while ($student = pg_fetch_array($result, NULL, PGSQL_ASSOC)) {
             array_push($students, $student);
         }
         return $students;
@@ -80,7 +80,7 @@ class CoursesDB
             return false;
         }
         $courses = array();
-        while ($course = pg_fetch_array($result, PGSQL_ASSOC)) {
+        while ($course = pg_fetch_array($result, NULL, PGSQL_ASSOC)) {
             array_push($courses, $course);
         }
         return $courses;
@@ -92,7 +92,7 @@ class CoursesDB
         if (!$result) {
             return false;
         }
-        $course = pg_fetch_array($result, PGSQL_ASSOC);
+        $course = pg_fetch_array($result, NULL, PGSQL_ASSOC);
         return $course;
     }
 
