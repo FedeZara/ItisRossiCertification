@@ -1,3 +1,18 @@
 {
-
+    "require": {
+        "ext-ctype": "*",
+        "ext-dom": "*",
+        "ext-gd": "*",
+        "ext-iconv": "*",
+        "ext-libxml": "*",
+        "ext-mbstring": "*",
+        "ext-simplexml": "*",
+        "ext-xml": "*",
+        "ext-xmlreader": "*",
+        "ext-xmlwriter": "*",
+        "ext-zip": "*",
+        "ext-zlib": "*",
+        "php": "^5.6|^7.0",
+        "psr/simple-cache": "^1.0"
+    }
 }
