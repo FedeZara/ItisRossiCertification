@@ -94,7 +94,7 @@ function showCourses()
           <div class="form-group has-feedback col-md-7 col-xs-12" id="form-group-surname">
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              <input class="form-control" id="surname" type="text" maxlength="30" placeholder="Cognome" pattern="^[a-zA-Z ]{2,30}$" data-error="Inserire un cognome valido!" required>
+              <input class="form-control" id="surname" type="text" maxlength="30" placeholder="Cognome" pattern="^[a-zA-Z 'èàòìù]{2,30}$" data-error="Inserire un cognome valido!" required>
               <span class="glyphicon form-control-feedback"></span>
             </div>
             <div class="help-block with-errors"></div>
@@ -104,7 +104,7 @@ function showCourses()
           <div class="form-group has-feedback col-md-7 col-xs-12" id="form-group-name">
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              <input class="form-control" id="name" type="text" maxlength="30" placeholder="Nome" pattern="^[a-zA-Z ]{2,30}$" data-error="Inserire un nome valido!" required>
+              <input class="form-control" id="name" type="text" maxlength="30" placeholder="Nome" pattern="^[a-zA-Z 'èàòìù]{2,30}$" data-error="Inserire un nome valido!" required>
               <span class="glyphicon form-control-feedback"></span>
             </div>
             <div class="help-block with-errors"></div>
