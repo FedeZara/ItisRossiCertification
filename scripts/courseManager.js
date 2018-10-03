@@ -7,7 +7,7 @@ $(document).ready(function(){
   console.log("hey");
   document.querySelectorAll(".course-panel button").forEach(function(p){
     console.log("a");
-    p.on("click", function(){
+    p.click(function(){
       btnRemove_Click(p.data("courseId"));
     });
   });
