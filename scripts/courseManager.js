@@ -5,10 +5,10 @@ $(document).ready(function(){
     rootSelector: '[data-toggle=confirmation]',
   });
   $(".course-panel button").each(function(p){
-    console.log(p.data("courseId"));
+    console.log($( this ).data("courseId"));
 
-    p.click(function(){
-      btnRemove_Click(p.data("courseId"));
+    $( this ).click(function(){
+      btnRemove_Click($( this ).data("courseId"));
     });
   });
 });
