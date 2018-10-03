@@ -4,12 +4,11 @@ $(document).ready(function(){
   $('[data-toggle=confirmation]').confirmation({
     rootSelector: '[data-toggle=confirmation]',
   });
-  var panels = document.querySelector("#container #row div #row").childNodes();
-  panels.forEach(function(p){
-    p.on("click", function(){
+  $("#container #row div #row").children().forEach(function(p){
+    p.find("button").on("click", function(){
       btnRemove_Click(this.data("courseId"));
     });
-  })
+  });
 });
 
 function btnRemove_Click(course_id) {
