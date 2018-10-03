@@ -39,6 +39,7 @@ function showCourses()
                           data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="check"
                           data-btn-cancel-label="Annulla" data-btn-cancel-class="btn-danger"
                           data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="close"
+                          data-popout="true"
                           data-title="Vuoi davvero cancellare il corso?" data-content="Tutte le iscrizioni al corso verranno perse..." id="btnRemove" onclick="btnRemove_Click(' . $course_id . ')"><span class="glyphicon glyphicon-remove"></span></button>
                         </div>
                       </div>
