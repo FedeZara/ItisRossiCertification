@@ -1,11 +1,7 @@
 selectedCourse = -1;
-
-$(document).ready(function(){
-  $('body').confirmation({
-    selector: '[data-toggle="confirmation"]'
-  });
+$('body').confirmation({
+  selector: '[data-toggle="confirmation"]'
 });
-
 function btnRemove_Click(course_id) {
   $.ajax({
     type: "POST",
