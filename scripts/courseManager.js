@@ -4,7 +4,7 @@ $(document).ready(function(){
   $('[data-toggle=confirmation]').confirmation({
     rootSelector: '[data-toggle=confirmation]',
   });
-  document.querySelectorAll(".course-panel button").forEach(function(p){
+  $(".course-panel button").each(function(p){
     console.log(p.data("courseId"));
 
     p.click(function(){
