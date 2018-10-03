@@ -72,7 +72,7 @@ function showCourses()
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="scripts/courseManager.js"></script>
-  <script src="node_modules/popper.js/dist/popper.min.js"></script>
+  <script src="scripts/popper.js"></script>
   <script src="scripts/bootstrap-confirmation.js"></script>
 </head>
 <body>
