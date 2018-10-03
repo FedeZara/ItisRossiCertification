@@ -3,7 +3,8 @@ selectedCourse = -1;
 $(document).ready(function(){
   $('[data-toggle=confirmation]').confirmation({
     rootSelector: '[data-toggle=confirmation]',
-    container: 'body'
+    container: 'body',
+    placement: 'left'
   });
   $(".course-panel button").each(function(p){
     $( this ).click(function(){
