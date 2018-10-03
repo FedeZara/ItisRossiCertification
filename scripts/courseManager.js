@@ -1,6 +1,7 @@
 selectedCourse = -1;
 
 function btnRemove_Click(course_id) {
+  
   $.ajax({
     type: "POST",
     url: "removeCourse.php",
