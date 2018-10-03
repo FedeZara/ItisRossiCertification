@@ -5,8 +5,9 @@ $(document).ready(function(){
     rootSelector: '[data-toggle=confirmation]',
   });
   document.querySelectorAll(".course-panel button").forEach(function(p){
+    console.log(p.data("courseId"));
+
     p.click(function(){
-      console.log(p.data("courseId"));
       btnRemove_Click(p.data("courseId"));
     });
   });
