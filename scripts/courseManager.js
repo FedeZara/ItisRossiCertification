@@ -1,7 +1,17 @@
 selectedCourse = -1;
-$('body').confirmation({
-  selector: '[data-toggle="confirmation"]'
+
+$(document).ready(function(){
+  $('[data-toggle=confirmation]').confirmation({
+    rootSelector: '[data-toggle=confirmation]',
+  });
+  var panels = document.querySelector("#container #row div #row").childNodes();
+  panels.forEach(function(p){
+    p.on("click", function(){
+      btnRemove_Click(this.data("courseId"));
+    });
+  })
 });
+
 function btnRemove_Click(course_id) {
   $.ajax({
     type: "POST",
@@ -17,7 +27,7 @@ function btnRemove_Click(course_id) {
           '<div class="alert alert-danger alert-dismissible fade in">' +
           '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
           '<strong>Errore</strong> sconosciuto durante la rimozione del corso! ' +
-          '</div>')
+          '</div>');
       }
     }
   });
