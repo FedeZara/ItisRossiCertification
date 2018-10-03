@@ -3,10 +3,9 @@ selectedCourse = -1;
 $(document).ready(function(){
   $('[data-toggle=confirmation]').confirmation({
     rootSelector: '[data-toggle=confirmation]',
+    container: 'body'
   });
   $(".course-panel button").each(function(p){
-    console.log($( this ).data("courseId"));
-
     $( this ).click(function(){
       btnRemove_Click($( this ).data("courseId"));
     });
