@@ -24,7 +24,7 @@ function showCourses()
         for ($i = 0; $i < count($courses); $i++) {
             $course_id = $courses[$i]["course_id"];
             echo '<div id="hint' . $course_id . '"></div>';
-            echo '<div class="col-lg-6" id="div' . $course_id . '">
+            echo '<div class="col-lg-6 course-panel" id="div' . $course_id . '">
                 <div class="panel panel-default">
                   <div class="panel-heading clickable clearfix" onclick="selectCourse(' . $course_id . ')">
                     <div class="row">

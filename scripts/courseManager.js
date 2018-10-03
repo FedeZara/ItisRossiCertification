@@ -4,10 +4,10 @@ $(document).ready(function(){
   $('[data-toggle=confirmation]').confirmation({
     rootSelector: '[data-toggle=confirmation]',
   });
-  $("#container #row div #row").children().forEach(function(p){
+  document.querySelectorAll("#course-panel button").forEach(function(p){
     console.log("a");
-    p.find("button").on("click", function(){
-      btnRemove_Click(this.data("courseId"));
+    p.on("click", function(){
+      btnRemove_Click(p.data("courseId"));
     });
   });
 });
