@@ -5,6 +5,7 @@ $(document).ready(function(){
     rootSelector: '[data-toggle=confirmation]',
   });
   $("#container #row div #row").children().forEach(function(p){
+    console.log("a");
     p.find("button").on("click", function(){
       btnRemove_Click(this.data("courseId"));
     });
