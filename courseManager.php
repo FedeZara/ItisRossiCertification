@@ -39,7 +39,7 @@ function showCourses()
                           data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="check"
                           data-btn-cancel-label="Annulla" data-btn-cancel-class="btn-danger"
                           data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="close"
-                          data-title="Vuoi davvero cancellare il corso?" data-content="This might be dangerous" id="btnRemove" onclick="btnRemove_Click(' . $course_id . ')"><span class="glyphicon glyphicon-remove"></span></button>
+                          data-title="Vuoi davvero cancellare il corso?" data-content="Tutte le iscrizioni al corso verranno perse..." id="btnRemove" onclick="btnRemove_Click(' . $course_id . ')"><span class="glyphicon glyphicon-remove"></span></button>
                         </div>
                       </div>
                     </div>
@@ -72,7 +72,7 @@ function showCourses()
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="scripts/courseManager.js"></script>
-  <script src="node_modules/popper.js/dist/popper.js"></script>
+  <script src="node_modules/popper.js/dist/popper.min.js"></script>
   <script src="scripts/bootstrap-confirmation.js"></script>
 </head>
 <body>
