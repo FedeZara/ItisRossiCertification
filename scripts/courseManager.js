@@ -4,6 +4,7 @@ $(document).ready(function(){
   $('[data-toggle=confirmation]').confirmation({
     rootSelector: '[data-toggle=confirmation]',
   });
+  console.log("hey");
   document.querySelectorAll(".course-panel button").forEach(function(p){
     console.log("a");
     p.on("click", function(){
