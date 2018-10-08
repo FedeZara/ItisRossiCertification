@@ -13,7 +13,7 @@ function showCourses()
     } else {
         for ($i = 0; $i < count($courses); $i++) {
             $course_id = $courses[$i]["course_id"];
-            $maxStudentReached = $courses[$i]["num_students"] == $courses[$i]["max_students"];
+            $maxStudentReached = $courses[$i]["num_students"] >= $courses[$i]["max_students"];
             echo '<div class="col-lg-6" id="div' . $course_id . '">
                 <div class="panel ' . ($maxStudentReached ? 'panel-danger' : 'panel-default') . '">
                   <div class="panel-heading clearfix ' . ($maxStudentReached ? 'disabled' : 'clickable" onclick="selectCourse(' . $course_id . ')') . ' ">
