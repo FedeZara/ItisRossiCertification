@@ -89,7 +89,7 @@ class CoursesDB
     public function getCourse($course_id)
     {
         $result = pg_query($this->db_connection, "SELECT courses.name, courses.teacher_name, courses.max_students, courses.information, 
-            count(students.course_id) as num_students FROM courses WHERE course_id = '$course_id' LEFT JOIN students ON (courses.course_id = students.course_id)");
+            count(students.course_id) as num_students FROM courses LEFT JOIN students ON (courses.course_id = students.course_id) WHERE course_id = '$course_id'");
         if (!$result) {
             return false;
         }
