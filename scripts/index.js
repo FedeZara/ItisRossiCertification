@@ -44,7 +44,13 @@ function nextTab() {
           $(".tab4 p").html('<div class="alert alert-success alert-dismissible">' +
             "<strong>Iscrizione avvenuta con successo!</strong> <br>La tua iscrizione è stata registrata." +
             '</div>');
-        } else {
+        } 
+        else if(student_id == "maxReached"){
+          $(".tab4 p").html('<div class="alert alert-danger alert-dismissible">' +
+            "<strong>Numero massimo di posti raggiunto!</strong> <br>Sembrerebbe che tu non abbia fatto in tempo ad iscriverti al corso...<br>Ricompila il form e seleziona un altro corso. <br>Contatta la prof.ssa Lavinia Vettore se pensi ci possa essere un errore." +
+            '</div>');
+        }
+        else {
           $(".tab4 p").html('<div class="alert alert-danger alert-dismissible">' +
             "<strong>Errore sconosciuto durante la registrazione!</strong> <br>Contatta la prof.ssa Lavinia Vettore per cercare di trovare una soluzione." +
             '</div>');

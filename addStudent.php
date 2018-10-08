@@ -8,13 +8,18 @@ $course_id = $_REQUEST['course_id'];
 
 $succeeded = true;
 
-$result = $coursesDB->addStudent($name, $surname, $class, $course_id);
-if (!$result) {
-    $succeeded = false;
-}
-
-if ($succeeded) {
-    echo ($result);
+$course = $coursesDB->getCourse($course_id);
+if ($course["max_students"] <= $course["num_students"]) {
+    echo "maxReached";
 } else {
-    echo "error";
+    $result = $coursesDB->addStudent($name, $surname, $class, $course_id);
+    if (!$result) {
+        $succeeded = false;
+    }
+
+    if ($succeeded) {
+        echo ($result);
+    } else {
+        echo "error";
+    }
 }
