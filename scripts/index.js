@@ -45,7 +45,7 @@ function nextTab() {
             "<strong>Iscrizione avvenuta con successo!</strong> <br>La tua iscrizione è stata registrata." +
             '</div>');
         } 
-        else if(student_id == "maxReached"){
+        else if(result == "maxReached"){
           $(".tab4 p").html('<div class="alert alert-danger alert-dismissible">' +
             "<strong>Numero massimo di posti raggiunto!</strong> <br>Sembrerebbe che tu non abbia fatto in tempo ad iscriverti al corso...<br>Ricompila il form e seleziona un altro corso. <br>Contatta la prof.ssa Lavinia Vettore se pensi ci possa essere un errore." +
             '</div>');
