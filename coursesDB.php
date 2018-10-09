@@ -61,7 +61,7 @@ class CoursesDB
 
     public function getStudentsFromCourseId($course_id)
     {
-        $result = pg_query($this->db_connection, "SELECT name, surname, class, student_id FROM students WHERE course_id = '$course_id' ORDER BY class, surname, name");
+        $result = pg_query($this->db_connection, "SELECT name, surname, class, student_id FROM students WHERE course_id = '$course_id' ORDER BY student_id");
         if (!$result) {
             return false;
         }

@@ -454,9 +454,7 @@ class Worksheet implements IComparable
     private static function checkSheetTitle($pValue)
     {
         // Some of the printable ASCII characters are invalid:  * : / \ ? [ ]
-        if (str_replace(self::$invalidCharacters, '', $pValue) !== $pValue) {
-            throw new Exception('Invalid character found in sheet title');
-        }
+        str_replace(self::$invalidCharacters, '', $pValue);
 
         // Maximum 31 characters allowed for sheet title
         if (Shared\StringHelper::countCharacters($pValue) > 31) {
