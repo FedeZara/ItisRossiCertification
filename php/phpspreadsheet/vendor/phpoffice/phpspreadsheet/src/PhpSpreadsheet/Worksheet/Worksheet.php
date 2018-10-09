@@ -428,11 +428,12 @@ class Worksheet implements IComparable
             throw new Exception('Sheet code name cannot be empty.');
         }
         // Some of the printable ASCII characters are invalid:  * : / \ ? [ ] and  first and last characters cannot be a "'"
-        if ((str_replace(self::$invalidCharacters, '', $pValue) !== $pValue) ||
-            (Shared\StringHelper::substring($pValue, -1, 1) == '\'') ||
+        if ((Shared\StringHelper::substring($pValue, -1, 1) == '\'') ||
             (Shared\StringHelper::substring($pValue, 0, 1) == '\'')) {
             throw new Exception('Invalid character found in sheet code name');
         }
+
+        $pValue = str_replace(self::$invalidCharacters, ' ', $pValue) !== $pValue;
 
         // Maximum 31 characters allowed for sheet title
         if ($CharCount > 31) {
@@ -454,7 +455,7 @@ class Worksheet implements IComparable
     private static function checkSheetTitle($pValue)
     {
         // Some of the printable ASCII characters are invalid:  * : / \ ? [ ]
-        str_replace(self::$invalidCharacters, '', $pValue);
+        $pValue = str_replace(self::$invalidCharacters, ' ', $pValue);
 
         // Maximum 31 characters allowed for sheet title
         if (Shared\StringHelper::countCharacters($pValue) > 31) {
