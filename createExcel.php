@@ -20,7 +20,7 @@ $spreadsheet->getProperties()
 $i = 0;
 
 foreach ($courses as $c) {
-    $sheet = new \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet($spreadsheet, $c["name"]);
+    $sheet = new \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet($spreadsheet, str_replace(['*', ':', '/', '\\', '?', '[', ']'], ' ', $c["name"]));
     $spreadsheet->addSheet($sheet, $i);
     $sheet->setCellValue('B10', 'Classe     ')
         ->setCellValue('C10', 'Cognome     ')
