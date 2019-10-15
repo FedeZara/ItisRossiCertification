@@ -6,21 +6,6 @@ class CoursesDB
     public function __construct()
     {
         $this->db_connection = pg_connect(getenv("DATABASE_URL"));
-        $result = pg_query($this->db_connection, "CREATE TABLE IF NOT EXISTS courses(
-        course_id SERIAL PRIMARY KEY,
-        name text NOT NULL,
-        teacher_name text NOT NULL,
-        max_students integer NOT NULL,
-        information text)"
-        );
-        $result = pg_query($this->db_connection, "CREATE TABLE IF NOT EXISTS students(
-        student_id SERIAL PRIMARY KEY,
-        name text NOT NULL,
-        surname text NOT NULL,
-        class text NOT NULL,
-        course_id integer NOT NULL,
-        FOREIGN KEY (course_id) REFERENCES courses (course_id))"
-        );
     }
 
     public function addStudent($name, $surname, $class, $course_id)
