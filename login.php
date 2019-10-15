@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($password_err)) {
-        if ($password == "certificazioni2019") {
+        if ($password == getenv("ADMIN_PASSWORD")) {
             session_start();
             $_SESSION['logged'] = true;
             header("location: courseManager.php");
