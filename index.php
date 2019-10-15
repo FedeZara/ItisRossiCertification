@@ -84,7 +84,7 @@ function showCourses()
           <div class="form-group has-feedback col-md-3 col-xs-12" id="form-group-class">
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
-              <input class="form-control" id="class" type="text" placeholder="Classe" pattern="^([1-5][a-zA-Z]{3})$" data-error="Inserire una classe valida! Es. 4AII" required>
+              <input class="form-control" id="class" type="text" placeholder="Classe" pattern="^([1-5][a-zA-Z]{3})$" data-error="Inserire una classe valida! Es. 5AII" required>
               <span class="glyphicon form-control-feedback"></span>
             </div>
             <div class="help-block with-errors"></div>
