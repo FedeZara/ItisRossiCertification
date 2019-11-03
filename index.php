@@ -70,6 +70,7 @@ function showCourses()
     </h1>
   </div>
 </header>
+<? if(getenv("REGISTRATION_OPEN") == 1): ?>
 <form data-toggle="validator" role="form">
 <div class="container">
   <div class="tab1">
@@ -156,6 +157,11 @@ function showCourses()
   <br>
 </div>
 </form>
+<? else: ?>
+<div class="text-center">
+  <h3>Iscrizioni chiuse <br><small>Le iscrizioni sono chiuse. Per eventuali informazioni <br>contattare la prof. Lavinia Vettore.</small></h3>
+</div>
+<? endif; ?>
 <footer class="footer">
     <div class="container">
       <span class="text-muted">Sito a cura di Federico Zarantonello</span>
